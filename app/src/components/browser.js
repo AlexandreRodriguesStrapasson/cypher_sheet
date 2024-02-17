@@ -10,6 +10,7 @@ function Browser(){
     return(
         <div className={browserStyle.backGround} id="navegation">
             <button className={browserStyle.btn} onClick={goToHome}>Home</button>
+            <button className={browserStyle.btn}>Forja</button>
         </div>
     )
 }
