@@ -1,14 +1,25 @@
-import Style from '../style/secondStep.module.css'
+import React, { useState } from 'react';
+import Style from '../style/secondStep.module.css';
 
-function secondStep(){
-    return(
+function SecondStep() {
+    const [isActive, setIsActive] = useState(false);
+
+    const handleClick = () => {
+        setIsActive(!isActive); // Alternar estado
+    };
+
+    return (
         <div className={Style.mainBody}>
-            <div>
-                <p>Design inicial da segunda página</p>
+            <div
+                className={`${Style.card} ${isActive ? Style.active : ''}`}
+                onClick={handleClick}
+            >
+                <div className={`${Style.content} ${isActive ? Style.contentActive : ''}`}>
+                    <p>Texto de exemplo</p>
+                </div>
             </div>
         </div>
     );
 }
 
-
-export default secondStep;
+export default SecondStep;

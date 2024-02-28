@@ -1,8 +1,40 @@
-.mainBody{
+.mainBody {
     height: 1000px;
     width: 900px;
     margin-left: auto;
     margin-right: auto;
     background-color: white;
     opacity: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.card {
+    transition: transform 0.5s ease;
+    cursor: pointer;
+    border: 2px solid ; 
+    height: 300px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.active {
+    transform: translateX(-150%); 
+    transition: transform 1s ease;
+}
+
+.content {
+    transition: transform 1s ease;
+    position: absolute; 
+    opacity: 0;
+}
+
+.active .content {
+    transform: translateX(200%); 
+    opacity: 1; 
+}
+
