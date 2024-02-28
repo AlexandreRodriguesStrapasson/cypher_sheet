@@ -1,6 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import Style from "../style/firstStep.module.css"
 
-function firsStep (){
+function FirsStep (){
+    const navigate = useNavigate();
+    const goToSecondStep = () => {
+        navigate("/secondStep");
+    }
+    
     return(
         <div>
             <div className={Style.mainBody}>
@@ -24,8 +30,7 @@ function firsStep (){
                     <textarea  placeholder="Nasci em um vilarejo pequeno, meu pai era um caçador e minha mãe uma padeira. Cresci sonhando com grandes aventruas e com as maravilhas escondidas pelo mundo, quando me tornei um adulto decidi viajar para entender mais sobre esse mundo e sobre mim mesmo"/>
                     <br/>
 
-                    <button>Próximo passo</button>
-
+                    <button onClick={goToSecondStep}>Próximo passo</button>
                 </div>
             </div>
         </div>
@@ -33,4 +38,4 @@ function firsStep (){
 }
 
 
-export default firsStep;
+export default FirsStep;
