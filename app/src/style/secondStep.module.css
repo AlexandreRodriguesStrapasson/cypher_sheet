@@ -13,7 +13,7 @@
 .card {
     transition: transform 0.5s ease;
     cursor: pointer;
-    border: 2px solid ; 
+    border: 2px solid; 
     height: 300px;
     width: 200px;
     display: flex;
@@ -34,7 +34,17 @@
 }
 
 .active .content {
-    transform: translateX(200%); 
+    transform: translateX(130%); 
     opacity: 1; 
 }
 
+
+.styleCharacter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: #000; 
+    z-index: 2; 
+  }

@@ -5,7 +5,7 @@ function SecondStep() {
     const [isActive, setIsActive] = useState(false);
 
     const handleClick = () => {
-        setIsActive(!isActive); // Alternar estado
+        setIsActive(!isActive); 
     };
 
     return (
@@ -14,8 +14,12 @@ function SecondStep() {
                 className={`${Style.card} ${isActive ? Style.active : ''}`}
                 onClick={handleClick}
             >
+                <div className={Style.styleCharacter}>Guerreiro</div> 
                 <div className={`${Style.content} ${isActive ? Style.contentActive : ''}`}>
-                    <p>Texto de exemplo</p>
+                    <p>
+                        Você é um bom aliado para se ter em uma luta. Você sabe
+                        como usar armas e se defender...
+                    </p>
                 </div>
             </div>
         </div>
