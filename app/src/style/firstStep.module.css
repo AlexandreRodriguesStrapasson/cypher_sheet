@@ -1,9 +1,5 @@
-h1{
-    color: white;;
-}
-
 .mainBody{
-    height: 1000px;
+    height: 1500px;
     width: 900px;
     margin-left: auto;
     margin-right: auto;
@@ -11,8 +7,36 @@ h1{
     opacity: 80%;
 }
 
+h1{
+    color: white;;
+}
+
+h3{
+   text-align: center;
+}
+
 textarea{
     margin-left: 10px;
     width: 870px;
     height: 400px;
+}
+
+select {
+    display: block; 
+    width: 90%; 
+    height: 40px; 
+    margin: 10px auto; 
+    padding: 0 10px;    
+    background-color: white; 
+    border: 1px solid #ccc;
+    border-radius: 5px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    font-size: 16px; 
+    cursor: pointer;
+}
+
+select:focus {
+    border-color: #ff0000; 
+    outline: none; 
+    box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.25); 
 }

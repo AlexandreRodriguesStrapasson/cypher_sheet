@@ -30,6 +30,17 @@ function FirsStep (){
                     <textarea  placeholder="Nasci em um vilarejo pequeno, meu pai era um caçador e minha mãe uma padeira. Cresci sonhando com grandes aventruas e com as maravilhas escondidas pelo mundo, quando me tornei um adulto decidi viajar para entender mais sobre esse mundo e sobre mim mesmo"/>
                     <br/>
 
+                    <h3>Selecione o Descritor do personagem</h3>
+                    <select>
+                        <option>Opção 1</option>
+                        <option>Opção 2</option>
+                        <option>Opção 3</option>
+                        <option>Opção 4</option>
+                        <option>Opção 5</option>
+                        <option>Opção 6</option>
+                    </select>
+
+                    <br/>
                     <button onClick={goToSecondStep}>Próximo passo</button>
                 </div>
             </div>
