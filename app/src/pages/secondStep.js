@@ -2,24 +2,53 @@ import React, { useState } from 'react';
 import Style from '../style/secondStep.module.css';
 
 function SecondStep() {
-    const [isActive, setIsActive] = useState(false);
-
-    const handleClick = () => {
-        setIsActive(!isActive); 
-    };
+    const [isActiveGuerreiro, setIsActiveGuerreiro] = useState(false);
+    const [isActiveExplorador, setIsActiveExplorador] = useState(false);
+    const [isActiveOrador, setIsActiveOrador] = useState(false);
+    const [isActiveAdepto, setIsActiveAdepto] = useState(false);
 
     return (
         <div className={Style.mainBody}>
+            <h1>Tipo</h1>
+            <h3>O Tpo do seu personagem define o papel que ele vai desempenhar no grupo.</h3>
+            <h3>Cada foco possui uma arvore de habilidade única.</h3>
             <div
-                className={`${Style.card} ${isActive ? Style.active : ''}`}
-                onClick={handleClick}
+                className={`${Style.card} ${isActiveGuerreiro ? Style.active : ''}`}
+                onClick={() => setIsActiveGuerreiro(!isActiveGuerreiro)}
             >
-                <div className={Style.styleCharacter}>Guerreiro</div> 
-                <div className={`${Style.content} ${isActive ? Style.contentActive : ''}`}>
-                    <p>
-                        Você é um bom aliado para se ter em uma luta. Você sabe
-                        como usar armas e se defender...
-                    </p>
+                <div className={Style.styleCharacter}>Guerreiro</div>
+                <div className={`${Style.content} ${isActiveGuerreiro ? Style.contentActive : ''}`}>
+                    <p>Descrição do Guerreiro...</p>
+                </div>
+            </div>
+
+            <div
+                className={`${Style.card} ${isActiveExplorador ? Style.active : ''}`}
+                onClick={() => setIsActiveExplorador(!isActiveExplorador)}
+            >
+                <div className={Style.styleCharacter}>Explorador</div>
+                <div className={`${Style.content} ${isActiveExplorador ? Style.contentActive : ''}`}>
+                    <p>Descrição do Explorador...</p>
+                </div>
+            </div>
+
+            <div
+                className={`${Style.card} ${isActiveOrador ? Style.active : ''}`}
+                onClick={() => setIsActiveOrador(!isActiveOrador)}
+            >
+                <div className={Style.styleCharacter}>Orador</div>
+                <div className={`${Style.content} ${isActiveOrador ? Style.contentActive : ''}`}>
+                    <p>Descrição do Orador...</p>
+                </div>
+            </div>
+
+            <div
+                className={`${Style.card} ${isActiveAdepto ? Style.active : ''}`}
+                onClick={() => setIsActiveAdepto(!isActiveAdepto)}
+            >
+                <div className={Style.styleCharacter}>Adepto</div>
+                <div className={`${Style.content} ${isActiveAdepto ? Style.contentActive : ''}`}>
+                    <p>Descrição do Adepto...</p>
                 </div>
             </div>
         </div>
