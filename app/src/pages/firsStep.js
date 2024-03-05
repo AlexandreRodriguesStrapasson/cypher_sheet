@@ -1,21 +1,19 @@
-import React, { useState } from 'react'; // Importando o useState
+import React, { useState } from 'react'; 
 import { useNavigate } from 'react-router-dom';
 import Style from '../style/firstStep.module.css';
 
 function FirstStep() {
   const navigate = useNavigate();
-  const [selectedOption, setSelectedOption] = useState(''); // Estado para armazenar a opção selecionada
+  const [selectedOption, setSelectedOption] = useState('');
 
   const goToSecondStep = () => {
     navigate('/secondStep');
   };
 
-  // Função para atualizar o estado baseado na seleção do usuário
   const handleSelectChange = (event) => {
     setSelectedOption(event.target.value);
   };
 
-  // Função para obter a descrição baseada na opção selecionada
   const getDescription = (option) => {
     const descriptions = {
       'Opção 1': 'Descrição para Opção 1',
@@ -61,8 +59,6 @@ function FirstStep() {
             <option value="Opção 5">Opção 5</option>
             <option value="Opção 6">Opção 6</option>
           </select>
-
-          {/* Exibindo a descrição com base na opção selecionada */}
           <p>{getDescription(selectedOption)}</p>
 
           <br/>
