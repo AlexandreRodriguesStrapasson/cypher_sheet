@@ -3,6 +3,7 @@ import './App.css';
 import Home from "./pages/home"
 import FirsSteps from './pages/firsStep';
 import SecondStep from './pages/secondStep';
+import ThirdStep from './pages/thirdStep';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route path='/' element={<Home/>}></Route>
         <Route path='/firstStep' element={<FirsSteps/>}></Route>
         <Route path='/secondStep' element={<SecondStep/>}></Route>
+        <Route path='/ThirdStep' element={<ThirdStep/>}></Route>
       </Routes>
     </BrowserRouter>
   );
