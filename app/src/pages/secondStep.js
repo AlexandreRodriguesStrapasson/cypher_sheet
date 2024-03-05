@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Style from '../style/secondStep.module.css';
 
 function SecondStep() {
@@ -6,6 +7,10 @@ function SecondStep() {
     const [isActiveExplorador, setIsActiveExplorador] = useState(false);
     const [isActiveOrador, setIsActiveOrador] = useState(false);
     const [isActiveAdepto, setIsActiveAdepto] = useState(false);
+    const navigate = useNavigate();
+    const goToThirdStep = () => {
+        navigate('/thirdStep');
+      };
 
     return (
         <div className={Style.mainBody}>
@@ -51,6 +56,8 @@ function SecondStep() {
                     <p>Descrição do Adepto...</p>
                 </div>
             </div>
+
+            <button onClick={goToThirdStep}>Próximo passo</button>
         </div>
     );
 }
