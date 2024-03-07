@@ -1,15 +1,16 @@
 .mainBody{
     background-color: white;
     width: 1000px;
-    height: 1000px;
+    height: 2000px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
 }
 
+
+
 .attributeBox{
     border: 5px solid;
-    background-color: red;
-    width: 500px;
-    height: 200px;
+    width: 350px;
+    height: 300px;
 }
