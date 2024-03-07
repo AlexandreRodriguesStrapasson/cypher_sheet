@@ -7,10 +7,15 @@
     margin-right: auto;
 }
 
-
+.characterInfo{
+    height: auto;
+    width: 350px;
+    border: 1px solid;
+    margin-bottom: 5px;
+}
 
 .attributeBox{
-    border: 5px solid;
+    border: 1px solid;
     width: 350px;
     height: 300px;
 }
