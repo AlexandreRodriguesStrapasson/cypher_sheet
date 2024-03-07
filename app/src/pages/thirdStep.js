@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Style from "../style/thirdStep.module.css"
 
 function ThirdStep() {
@@ -37,6 +38,11 @@ function ThirdStep() {
         }
     };
 
+    const navigate = useNavigate();
+    const goToSheet = () => {
+        navigate('/Sheet');
+    };
+
     return (
         <div className={Style.mainBody}>
             <h1>Agora é hora de escolher o foco do personagem</h1>
@@ -49,6 +55,8 @@ function ThirdStep() {
             <div>
                 {getDescription(selectedOption)}
             </div>
+
+            <button onClick={goToSheet}>Ficha</button>
         </div>
     );
 }

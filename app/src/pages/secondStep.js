@@ -9,7 +9,7 @@ function SecondStep() {
     const [isActiveAdepto, setIsActiveAdepto] = useState(false);
     const navigate = useNavigate();
     const goToThirdStep = () => {
-        navigate('/thirdStep');
+        navigate('/ThirdStep');
       };
 
     return (
