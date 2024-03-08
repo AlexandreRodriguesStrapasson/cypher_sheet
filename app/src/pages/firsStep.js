@@ -3,7 +3,7 @@ import { useFirstStepLogic } from "../components/customHooks/useFirstStepLogic";
 import Style from '../style/firstStep.module.css';
 
 function FirstStep() {
-  const { selectedOption, handleSelectChange, getDescription, goToSecondStep } = useFirstStepLogic();
+  const { selectedOption, handleSelectChange, getDescription, goToSecondStep, goToHome } = useFirstStepLogic();
 
   return (
     <div>
@@ -40,6 +40,7 @@ function FirstStep() {
           <p>{getDescription(selectedOption)}</p>
 
           <br/>
+          <button onClick={goToHome}>Home</button>
           <button onClick={goToSecondStep}>Próximo passo</button>
         </div>
       </div>

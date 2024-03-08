@@ -9,6 +9,10 @@ export const useFirstStepLogic = () => {
     navigate('/secondStep');
   };
 
+  const goToHome = () => {
+    navigate('/');
+  }
+
   const handleSelectChange = (event) => {
     setSelectedOption(event.target.value);
   };
@@ -26,5 +30,5 @@ export const useFirstStepLogic = () => {
     return descriptions[option] || '';
   };
 
-  return { selectedOption, handleSelectChange, getDescription, goToSecondStep };
+  return { selectedOption, handleSelectChange, getDescription, goToSecondStep, goToHome };
 };
