@@ -43,6 +43,10 @@ function ThirdStep() {
         navigate('/Sheet');
     };
 
+    const goToBack = () => {
+        navigate('/SecondStep');
+    }
+
     return (
         <div className={Style.mainBody}>
             <h1>Agora é hora de escolher o foco do personagem</h1>
@@ -56,6 +60,7 @@ function ThirdStep() {
                 {getDescription(selectedOption)}
             </div>
 
+            <button onClick={goToBack}>Voltar</button>
             <button onClick={goToSheet}>Ficha</button>
         </div>
     );
