@@ -11,6 +11,9 @@ function SecondStep() {
     const goToThirdStep = () => {
         navigate('/ThirdStep');
       };
+    const goToBack = () => {
+        navigate('/FirstStep');
+    }
 
     return (
         <div className={Style.mainBody}>
@@ -56,7 +59,7 @@ function SecondStep() {
                     <p>Descrição do Adepto...</p>
                 </div>
             </div>
-
+            <button onClick={goToBack}>Voltar</button>
             <button onClick={goToThirdStep}>Próximo passo</button>
         </div>
     );
