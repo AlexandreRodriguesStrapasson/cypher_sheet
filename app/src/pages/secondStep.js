@@ -24,13 +24,13 @@ function SecondStep() {
 
     const handleTypeChange = (e) => {
         setSelectedType(e.target.value);
-        setSelectedSkills([]); // Limpa as habilidades selecionadas ao mudar o tipo
+        setSelectedSkills([]); 
     };
 
     const handleSkillChange = (skill) => {
         const newSelectedSkills = selectedSkills.includes(skill)
-            ? selectedSkills.filter(s => s !== skill) // Remove a habilidade se já estiver selecionada
-            : [...selectedSkills, skill]; // Adiciona a habilidade se não estiver selecionada
+            ? selectedSkills.filter(s => s !== skill) 
+            : [...selectedSkills, skill]; 
         setSelectedSkills(newSelectedSkills);
     };
 
