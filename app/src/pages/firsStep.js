@@ -39,6 +39,17 @@ function FirstStep() {
           </select>
           <p>{getDescription(selectedOption)}</p>
 
+          <h3>Qual é o nível do seu personagem?</h3>
+          <select>
+            <option value="">Nivel</option>
+            <option value="Nivel 1">1</option>
+            <option value="Nivel 2">2</option>
+            <option value="Nivel 3">3</option>
+            <option value="Nivel 4">4</option>
+            <option value="Nivel 5">5</option>
+            <option value="Nivel 6">6</option>
+          </select>
+
           <br/>
           <button onClick={goToHome}>Home</button>
           <button onClick={goToSecondStep}>Próximo passo</button>
