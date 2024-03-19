@@ -3,62 +3,69 @@ import { useNavigate } from 'react-router-dom';
 import Style from '../style/secondStep.module.css';
 
 function SecondStep() {
-    const [isActiveGuerreiro, setIsActiveGuerreiro] = useState(false);
-    const [isActiveExplorador, setIsActiveExplorador] = useState(false);
-    const [isActiveOrador, setIsActiveOrador] = useState(false);
-    const [isActiveAdepto, setIsActiveAdepto] = useState(false);
     const navigate = useNavigate();
+    const [selectedType, setSelectedType] = useState('');
+    const [selectedSkills, setSelectedSkills] = useState([]);
+
+    const habilidades = {
+        warrior: ['Ataque Poderoso', 'Defesa Robusta'],
+        explorer: ['Navegação', 'Sobrevivência'],
+        adept: ['Magia Elemental', 'Cura'],
+        speaker: ['Diplomacia', 'Persuasão'],
+    };
+
     const goToThirdStep = () => {
         navigate('/ThirdStep');
-      };
+    };
+
     const goToBack = () => {
         navigate('/FirstStep');
-    }
+    };
+
+    const handleTypeChange = (e) => {
+        setSelectedType(e.target.value);
+        setSelectedSkills([]); // Limpa as habilidades selecionadas ao mudar o tipo
+    };
+
+    const handleSkillChange = (skill) => {
+        const newSelectedSkills = selectedSkills.includes(skill)
+            ? selectedSkills.filter(s => s !== skill) // Remove a habilidade se já estiver selecionada
+            : [...selectedSkills, skill]; // Adiciona a habilidade se não estiver selecionada
+        setSelectedSkills(newSelectedSkills);
+    };
 
     return (
         <div className={Style.mainBody}>
             <h1>Tipo</h1>
-            <h3>O Tpo do seu personagem define o papel que ele vai desempenhar no grupo.</h3>
-            <h3>Cada foco possui uma arvore de habilidade única.</h3>
-            <div
-                className={`${Style.card} ${isActiveGuerreiro ? Style.active : ''}`}
-                onClick={() => setIsActiveGuerreiro(!isActiveGuerreiro)}
-            >
-                <div className={Style.styleCharacter}>Guerreiro</div>
-                <div className={`${Style.content} ${isActiveGuerreiro ? Style.contentActive : ''}`}>
-                    <p>Descrição do Guerreiro...</p>
-                </div>
-            </div>
+            <h3>O Tipo do seu personagem define o papel que ele vai desempenhar no grupo.</h3>
+            <h3>Cada foco possui uma árvore de habilidade única.</h3>
+            
+            <select onChange={handleTypeChange} value={selectedType}>
+                <option value="">Selecione um tipo</option>
+                <option value="warrior">Guerreiro</option>
+                <option value="explorer">Explorador</option>
+                <option value="adept">Adepto</option>
+                <option value="speaker">Orador</option>
+            </select>
 
-            <div
-                className={`${Style.card} ${isActiveExplorador ? Style.active : ''}`}
-                onClick={() => setIsActiveExplorador(!isActiveExplorador)}
-            >
-                <div className={Style.styleCharacter}>Explorador</div>
-                <div className={`${Style.content} ${isActiveExplorador ? Style.contentActive : ''}`}>
-                    <p>Descrição do Explorador...</p>
+            {selectedType && (
+                <div>
+                    <h4>Habilidades:</h4>
+                    {habilidades[selectedType].map(skill => (
+                        <div key={skill}>
+                            <input
+                                type="checkbox"
+                                id={skill}
+                                name={skill}
+                                checked={selectedSkills.includes(skill)}
+                                onChange={() => handleSkillChange(skill)}
+                            />
+                            <label htmlFor={skill}>{skill}</label>
+                        </div>
+                    ))}
                 </div>
-            </div>
-
-            <div
-                className={`${Style.card} ${isActiveOrador ? Style.active : ''}`}
-                onClick={() => setIsActiveOrador(!isActiveOrador)}
-            >
-                <div className={Style.styleCharacter}>Orador</div>
-                <div className={`${Style.content} ${isActiveOrador ? Style.contentActive : ''}`}>
-                    <p>Descrição do Orador...</p>
-                </div>
-            </div>
-
-            <div
-                className={`${Style.card} ${isActiveAdepto ? Style.active : ''}`}
-                onClick={() => setIsActiveAdepto(!isActiveAdepto)}
-            >
-                <div className={Style.styleCharacter}>Adepto</div>
-                <div className={`${Style.content} ${isActiveAdepto ? Style.contentActive : ''}`}>
-                    <p>Descrição do Adepto...</p>
-                </div>
-            </div>
+            )}
+            
             <button onClick={goToBack}>Voltar</button>
             <button onClick={goToThirdStep}>Próximo passo</button>
         </div>
