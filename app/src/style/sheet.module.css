@@ -1,4 +1,10 @@
-.mainBody{
+.infoSections {
+    display: flex;
+    justify-content: space-around; 
+    margin: 0 5px; 
+}
+
+.mainBody {
     background-color: white;
     width: 1000px;
     height: 2000px;
@@ -7,40 +13,25 @@
     margin-right: auto;
 }
 
-.characterInfo{
-    height: auto;
-    width: 950px;
+.characterInfo, .attributeBox, .abilitties, .cyphers, .skills {
     border: 1px solid;
     margin-bottom: 5px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.attributeBox{
-    border: 1px solid;
-    width: 325px;
-    height: 300px;
-    margin-left: 5px;
+.characterInfo {
+    height: auto;
+    width: 950px;
 }
 
-.abilitties{
-    border: 1px solid;
+.attributeBox, .abilitties, .cyphers {
     width: 325px;
     height: 300px;
-    margin-left: 5px;
 }
 
-.cyphers{
-    border: 1px solid;
-    width: 325px;
-    height: 300px;
-    margin-left: 5px;
-}
-
-.skills{
-    border: 1px solid;
+.skills {
     width: 500px;
     height: 500px;
     margin-top: 5px;
-    margin-left: 5px;
 }
