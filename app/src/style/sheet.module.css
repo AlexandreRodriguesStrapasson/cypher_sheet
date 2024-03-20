@@ -1,37 +1,43 @@
-.infoSections {
+.infoSections, .combatSections, .additionalInfoSections {
     display: flex;
-    justify-content: space-around; 
-    margin: 0 5px; 
+    justify-content: space-around;
+    margin: 0 5px;
 }
 
 .mainBody {
     background-color: white;
     width: 1000px;
-    height: 2000px;
+    height: 2000px; 
     text-align: center;
     margin-left: auto;
     margin-right: auto;
 }
 
-.characterInfo, .attributeBox, .abilitties, .cyphers, .skills {
+.characterInfo, .attributeBox, .abilities, .cyphers, .skills, .attack, .equipament, .backGround, .notes {
     border: 1px solid;
     margin-bottom: 5px;
     margin-left: auto;
     margin-right: auto;
+    padding: 10px;
 }
 
 .characterInfo {
-    height: auto;
     width: 950px;
 }
 
-.attributeBox, .abilitties, .cyphers {
-    width: 325px;
-    height: 300px;
+.characterInfo input {
+    margin: 5px; 
+    display: inline-block; 
 }
 
-.skills {
-    width: 500px;
-    height: 500px;
-    margin-top: 5px;
+.attributeBox, .abilities, .cyphers, .skills, .attack, .equipament {
+    width: 475px; 
+    height: 300px; 
+    text-align: center;
+}
+
+.backGround, .notes {
+    width: 475px; 
+    height: 500px; 
+    text-align: center;
 }

@@ -17,7 +17,7 @@ function Sheet() {
                     <h3>Atributos</h3>
                 </div>
 
-                <div className={Style.abilitties}>
+                <div className={Style.abilities}>
                     <h3>Habilidades</h3>
                 </div>
                 <div className={Style.cyphers}>
@@ -25,18 +25,27 @@ function Sheet() {
                 </div>
             </div>
             
-            <div className={Style.skills}>
-                <h3>Habilidades</h3>
+            <div className={Style.combatSections}> 
+                <div className={Style.skills}>
+                    <h3>Habilidades</h3>
+                </div>
+                
+                <div className={Style.attack}>
+                    <h3>Ataques</h3>
+                </div>
+                <div className={Style.equipament}>
+                    <h3>Equipamentos</h3>
+                </div>
             </div>
             
-            <div className="attack">
-                <h3>Ataques</h3>
+            <div className={Style.additionalInfoSections}>
+                <div className={Style.backGround}>
+                    <h3>BackGround</h3>
+                </div>
+                <div className={Style.notes}>
+                    <h3>Anotações</h3>
+                </div>
             </div>
-            <div className="equipament">
-                <h3>Equipamentos</h3>
-            </div>
-            <div className="backGround"></div>
-            <div className="notes"></div>
         </div>
     );
 }
