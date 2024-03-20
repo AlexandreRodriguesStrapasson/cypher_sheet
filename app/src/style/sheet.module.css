@@ -9,13 +9,38 @@
 
 .characterInfo{
     height: auto;
-    width: 350px;
+    width: 950px;
     border: 1px solid;
     margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .attributeBox{
     border: 1px solid;
-    width: 350px;
+    width: 325px;
     height: 300px;
+    margin-left: 5px;
+}
+
+.abilitties{
+    border: 1px solid;
+    width: 325px;
+    height: 300px;
+    margin-left: 5px;
+}
+
+.cyphers{
+    border: 1px solid;
+    width: 325px;
+    height: 300px;
+    margin-left: 5px;
+}
+
+.skills{
+    border: 1px solid;
+    width: 500px;
+    height: 500px;
+    margin-top: 5px;
+    margin-left: 5px;
 }

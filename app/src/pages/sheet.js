@@ -15,9 +15,19 @@ function Sheet(){
             <div className={Style.attributeBox}>
                 <h3>Atributos</h3>
             </div>
-            <div className="skills"></div>
+
+            <div className={Style.abilitties}>
+                <h3>habilidade</h3>
+            </div>
+            <div className={Style.cyphers}>
+                <h3>Cyphers</h3>
+            </div>
+            
+            <div className={Style.skills}>
+                <h3>Habilidades</h3>
+            </div>
+            
             <div className="attack"></div>
-            <div className="cyphers"></div>
             <div className="equipament"></div>
 
             <div className="abilitties"></div>
