@@ -1,17 +1,8 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 
 export const useFirstStepLogic = () => {
-  const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState('');
-
-  const goToSecondStep = () => {
-    navigate('/secondStep');
-  };
-
-  const goToHome = () => {
-    navigate('/');
-  }
 
   const handleSelectChange = (event) => {
     setSelectedOption(event.target.value);
@@ -30,5 +21,5 @@ export const useFirstStepLogic = () => {
     return descriptions[option] || '';
   };
 
-  return { selectedOption, handleSelectChange, getDescription, goToSecondStep, goToHome };
+  return { selectedOption, handleSelectChange, getDescription};
 };

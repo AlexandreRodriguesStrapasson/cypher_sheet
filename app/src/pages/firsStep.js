@@ -1,9 +1,19 @@
 import React from 'react';
-import { useFirstStepLogic } from "../components/customHooks/useFirstStepLogic"; 
 import Style from '../style/firstStep.module.css';
+import { useFirstStepLogic } from "../components/customHooks/useFirstStepLogic"; 
+import { useNavigate } from 'react-router-dom';
 
 function FirstStep() {
-  const { selectedOption, handleSelectChange, getDescription, goToSecondStep, goToHome } = useFirstStepLogic();
+  const { selectedOption, handleSelectChange, getDescription} = useFirstStepLogic();
+  
+  const navigate = useNavigate();
+  const goToSecondStep = () => {
+    navigate('/secondStep');
+  };
+
+  const goToHome = () => {
+    navigate('/');
+  }
 
   return (
     <div>
