@@ -10,8 +10,7 @@ import FirsSteps from './pages/firsStep';
 import SecondStep from './pages/secondStep';
 import ThirdStep from './pages/thirdStep';
 import Sheet from './pages/sheet';
-
-
+import { SheetProvider } from './context/useContext';
 
 const router = createBrowserRouter ([
   {
@@ -28,14 +27,16 @@ const router = createBrowserRouter ([
 ])
 
 
+
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <SheetProvider>
+      <RouterProvider router={router}/>
+    </SheetProvider>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
