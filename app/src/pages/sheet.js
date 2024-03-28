@@ -1,12 +1,16 @@
+import React, { useContext } from 'react'; 
 import Style from "../style/sheet.module.css";
+import { SheetContext } from '../context/useContext'; 
 
 function Sheet() {
+    const {characterName} = useContext(SheetContext);
+
     return (
         <div className={Style.mainBody}>
             <h2>Ficha Cypher</h2>
             <div className={Style.characterInfo}>
                 <input value="Nome do jogador" readOnly />
-                <input value="Nome do personagem" readOnly />
+                <input value={characterName || "Nome do personagem"} readOnly />
                 <input value="Descritor" readOnly />
                 <input value="Tipo" readOnly />
                 <input value="foco" readOnly />

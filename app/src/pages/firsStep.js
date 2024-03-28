@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState, useContext  } from 'react';
 import Style from '../style/firstStep.module.css';
 import { useFirstStepLogic } from "../components/customHooks/useFirstStepLogic"; 
 import { useNavigate } from 'react-router-dom';
+import { SheetContext } from '../context/useContext';
 
 function FirstStep() {
   const { selectedOption, handleSelectChange, getDescription} = useFirstStepLogic();
-  
+  const { setCharacterName } = useContext(SheetContext);
+  const [characterInput, setCharacterInput] = useState(""); 
+
   const navigate = useNavigate();
   const goToSecondStep = () => {
+    setCharacterName(characterInput); 
     navigate('/secondStep');
   };
 
@@ -24,7 +28,11 @@ function FirstStep() {
           <input type="text"></input>
           
           <label>Nome do Personagem</label>
-          <input type="text"></input>
+          <input 
+            type="text" 
+            value={characterInput} 
+            onChange={(e) => setCharacterInput(e.target.value)} 
+          />
 
           <br/>
           <label>Descrição: </label>
