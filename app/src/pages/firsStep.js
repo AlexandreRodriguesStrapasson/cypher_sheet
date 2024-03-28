@@ -6,12 +6,18 @@ import { SheetContext } from '../context/useContext';
 
 function FirstStep() {
   const { selectedOption, handleSelectChange, getDescription} = useFirstStepLogic();
+  
   const { setCharacterName } = useContext(SheetContext);
   const [characterInput, setCharacterInput] = useState(""); 
+
+  const { setPlayerName } = useContext(SheetContext);
+  const [playerNameInput, setPlayerInput] = useState("");
+  
 
   const navigate = useNavigate();
   const goToSecondStep = () => {
     setCharacterName(characterInput); 
+    setPlayerName(playerNameInput)
     navigate('/secondStep');
   };
 
@@ -25,7 +31,11 @@ function FirstStep() {
         <div>
           <p>Para começar, vamos dar um nome para o seu herói, descrevê-lo e estabelecer seu background</p>
           <label>Nome do jogador</label>
-          <input type="text"></input>
+          <input 
+            type="text"
+            value={playerNameInput}
+            onChange={(e) => setPlayerInput(e.target.value) }
+          />
           
           <label>Nome do Personagem</label>
           <input 

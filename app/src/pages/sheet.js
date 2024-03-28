@@ -3,13 +3,13 @@ import Style from "../style/sheet.module.css";
 import { SheetContext } from '../context/useContext'; 
 
 function Sheet() {
-    const {characterName} = useContext(SheetContext);
+    const {characterName, playerName} = useContext(SheetContext);
 
     return (
         <div className={Style.mainBody}>
             <h2>Ficha Cypher</h2>
             <div className={Style.characterInfo}>
-                <input value="Nome do jogador" readOnly />
+                <input value={playerName || "Nome do personagem"} readOnly />
                 <input value={characterName || "Nome do personagem"} readOnly />
                 <input value="Descritor" readOnly />
                 <input value="Tipo" readOnly />
