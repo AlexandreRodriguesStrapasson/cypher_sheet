@@ -12,12 +12,15 @@ function FirstStep() {
 
   const { setPlayerName } = useContext(SheetContext);
   const [playerNameInput, setPlayerInput] = useState("");
-  
+
+  const { setDescription } = useContext(SheetContext);
+  const [descriptionInput, setDescriptionInput] = useState("");
 
   const navigate = useNavigate();
   const goToSecondStep = () => {
     setCharacterName(characterInput); 
-    setPlayerName(playerNameInput)
+    setPlayerName(playerNameInput);
+    setDescription(descriptionInput)
     navigate('/secondStep');
   };
 
@@ -47,7 +50,11 @@ function FirstStep() {
           <br/>
           <label>Descrição: </label>
           <br/>
-          <textarea placeholder="Cabelos negros e longos, alcançando a altura dos ombros; Olhos azuis e penetrantes; Alto com corpo robusto"/>
+          <textarea 
+            placeholder="Cabelos negros e longos, alcançando a altura dos ombros; Olhos azuis e penetrantes; Alto com corpo robusto"
+            value={descriptionInput}
+            onChange={(e) => setDescriptionInput(e.target.value)}
+          />
           <br/>
           
           <label>História: </label>

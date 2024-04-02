@@ -3,7 +3,7 @@ import Style from "../style/sheet.module.css";
 import { SheetContext } from '../context/useContext'; 
 
 function Sheet() {
-    const {characterName, playerName} = useContext(SheetContext);
+    const {characterName, playerName, description} = useContext(SheetContext);
 
     return (
         <div className={Style.mainBody}>
@@ -45,6 +45,8 @@ function Sheet() {
             <div className={Style.additionalInfoSections}>
                 <div className={Style.backGround}>
                     <h3>BackGround</h3>
+                    <h1>Aparência</h1>
+                    <p>{description}</p>
                 </div>
                 <div className={Style.notes}>
                     <h3>Anotações</h3>
