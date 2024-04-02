@@ -1,32 +1,35 @@
 import React, { useState, useContext  } from 'react';
 import Style from '../style/firstStep.module.css';
-import { useFirstStepLogic } from "../components/customHooks/useFirstStepLogic"; 
 import { useNavigate } from 'react-router-dom';
 import { SheetContext } from '../context/useContext';
 
 function FirstStep() {
-  const { selectedOption, handleSelectChange, getDescription} = useFirstStepLogic();
-  
-  const { setCharacterName, setPlayerName, setDescription, setBackGround } = useContext(SheetContext);
+  const { setCharacterName, setPlayerName, setDescription, setBackGround, setDescriptor } = useContext(SheetContext);
   
   const [characterInput, setCharacterInput] = useState(""); 
   const [playerNameInput, setPlayerInput] = useState("");
   const [descriptionInput, setDescriptionInput] = useState("");
   const [backGroundInput, setBackGroundInput] = useState("");
-
+  const [descriptorInput, setDescriptorInput] = useState("");
 
   const navigate = useNavigate();
+
   const goToSecondStep = () => {
     setCharacterName(characterInput); 
     setPlayerName(playerNameInput);
-    setDescription(descriptionInput)
+    setDescription(descriptionInput);
     setBackGround(backGroundInput);
+    setDescriptor(descriptorInput);
     navigate('/secondStep');
   };
 
   const goToHome = () => {
     navigate('/');
   }
+
+  const handleDescriptorChange = (event) => {
+    setDescriptorInput(event.target.value);
+};
 
   return (
     <div>
@@ -67,16 +70,16 @@ function FirstStep() {
           <br/>
 
           <h3>Selecione o Descritor do personagem</h3>
-          <select onChange={handleSelectChange}>
+          <select onChange={handleDescriptorChange}>
             <option value="">Descritor</option>
-            <option value="Opção 1">Opção 1</option>
-            <option value="Opção 2">Opção 2</option>
-            <option value="Opção 3">Opção 3</option>
-            <option value="Opção 4">Opção 4</option>
-            <option value="Opção 5">Opção 5</option>
-            <option value="Opção 6">Opção 6</option>
+            <option value="Benificente">Benificente</option>
+            <option value="Calmo">Calmo</option>
+            <option value="Caótico">Caótico</option>
+            <option value="Criativo">Criativo</option>
+            <option value="Cruel">Cruel</option>
+            <option value="Louco">Louco</option>
           </select>
-          <p>{getDescription(selectedOption)}</p>
+      
 
           <h3>Qual é o nível do seu personagem?</h3>
           <select>
