@@ -7,20 +7,20 @@ import { SheetContext } from '../context/useContext';
 function FirstStep() {
   const { selectedOption, handleSelectChange, getDescription} = useFirstStepLogic();
   
-  const { setCharacterName } = useContext(SheetContext);
+  const { setCharacterName, setPlayerName, setDescription, setBackGround } = useContext(SheetContext);
+  
   const [characterInput, setCharacterInput] = useState(""); 
-
-  const { setPlayerName } = useContext(SheetContext);
   const [playerNameInput, setPlayerInput] = useState("");
-
-  const { setDescription } = useContext(SheetContext);
   const [descriptionInput, setDescriptionInput] = useState("");
+  const [backGroundInput, setBackGroundInput] = useState("");
+
 
   const navigate = useNavigate();
   const goToSecondStep = () => {
     setCharacterName(characterInput); 
     setPlayerName(playerNameInput);
     setDescription(descriptionInput)
+    setBackGround(backGroundInput);
     navigate('/secondStep');
   };
 
@@ -59,7 +59,11 @@ function FirstStep() {
           
           <label>História: </label>
           <br/>
-          <textarea placeholder="Nasci em um vilarejo pequeno, meu pai era um caçador e minha mãe uma padeira. Cresci sonhando com grandes aventuras e com as maravilhas escondidas pelo mundo, quando me tornei um adulto decidi viajar para entender mais sobre esse mundo e sobre mim mesmo"/>
+          <textarea 
+            placeholder="Nasci em um vilarejo pequeno, meu pai era um caçador e minha mãe uma padeira. Cresci sonhando com grandes aventuras e com as maravilhas escondidas pelo mundo, quando me tornei um adulto decidi viajar para entender mais sobre esse mundo e sobre mim mesmo"
+            value={backGroundInput}  
+            onChange={(e) => setBackGroundInput(e.target.value)}
+          />
           <br/>
 
           <h3>Selecione o Descritor do personagem</h3>
