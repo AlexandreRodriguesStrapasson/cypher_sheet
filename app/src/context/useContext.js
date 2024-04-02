@@ -8,6 +8,7 @@ export const SheetProvider = ({children}) => {
      const [description, setDescription] = useState("");
      const [backGround, setBackGround] = useState("");
      const [descriptor, setDescriptor] = useState("");
+     const [level, setLevel] = useState("");
      
     
     return (
@@ -17,7 +18,8 @@ export const SheetProvider = ({children}) => {
                     playerName, setPlayerName,
                     description, setDescription,
                     backGround, setBackGround,
-                    descriptor, setDescriptor
+                    descriptor, setDescriptor,
+                    level, setLevel
                 }
             }>
             {children}

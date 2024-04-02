@@ -3,7 +3,7 @@ import Style from "../style/sheet.module.css";
 import { SheetContext } from '../context/useContext'; 
 
 function Sheet() {
-    const {characterName, playerName, description, backGround, descriptor} = useContext(SheetContext);
+    const {characterName, playerName, description, backGround, descriptor, level} = useContext(SheetContext);
 
     return (
         <div className={Style.mainBody}>
@@ -14,6 +14,7 @@ function Sheet() {
                 <input value={descriptor || "Descritor"} readOnly />
                 <input value="Tipo" readOnly />
                 <input value="foco" readOnly />
+                <input value={level || "Nivel"} readOnly/>
             </div>
 
             <div className={Style.infoSections}> 

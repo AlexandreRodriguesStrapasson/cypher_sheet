@@ -4,13 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import { SheetContext } from '../context/useContext';
 
 function FirstStep() {
-  const { setCharacterName, setPlayerName, setDescription, setBackGround, setDescriptor } = useContext(SheetContext);
+  const { setCharacterName, setPlayerName, setDescription, setBackGround, setDescriptor, setLevel } = useContext(SheetContext);
   
   const [characterInput, setCharacterInput] = useState(""); 
   const [playerNameInput, setPlayerInput] = useState("");
   const [descriptionInput, setDescriptionInput] = useState("");
   const [backGroundInput, setBackGroundInput] = useState("");
   const [descriptorInput, setDescriptorInput] = useState("");
+  const [levelInput, setLevelInput] = useState("");
 
   const navigate = useNavigate();
 
@@ -20,6 +21,7 @@ function FirstStep() {
     setDescription(descriptionInput);
     setBackGround(backGroundInput);
     setDescriptor(descriptorInput);
+    setLevel(levelInput);
     navigate('/secondStep');
   };
 
@@ -29,7 +31,13 @@ function FirstStep() {
 
   const handleDescriptorChange = (event) => {
     setDescriptorInput(event.target.value);
-};
+  };
+
+  const handleLevelChange = (event) =>{
+    setLevelInput(event.target.value);
+  }
+
+
 
   return (
     <div>
@@ -82,14 +90,14 @@ function FirstStep() {
       
 
           <h3>Qual é o nível do seu personagem?</h3>
-          <select>
+          <select onChange={handleLevelChange}>
             <option value="">Nivel</option>
-            <option value="Nivel 1">1</option>
-            <option value="Nivel 2">2</option>
-            <option value="Nivel 3">3</option>
-            <option value="Nivel 4">4</option>
-            <option value="Nivel 5">5</option>
-            <option value="Nivel 6">6</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
           </select>
 
           <br/>
