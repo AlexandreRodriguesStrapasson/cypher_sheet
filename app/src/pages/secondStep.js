@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Style from '../style/secondStep.module.css';
+import { SheetContext } from '../context/useContext'; // Ajuste o caminho conforme necessário
+import Style from '../style/secondStep.module.css'; 
 
 function SecondStep() {
     const navigate = useNavigate();
+    const { setType } = useContext(SheetContext);
     const [selectedType, setSelectedType] = useState('');
     const [selectedSkills, setSelectedSkills] = useState([]);
 
@@ -24,28 +26,26 @@ function SecondStep() {
 
     const handleTypeChange = (e) => {
         setSelectedType(e.target.value);
-        setSelectedSkills([]); 
+        setType(e.target.value);
+        setSelectedSkills([]);
     };
 
     const handleSkillChange = (skill) => {
         const newSelectedSkills = selectedSkills.includes(skill)
-            ? selectedSkills.filter(s => s !== skill) 
-            : [...selectedSkills, skill]; 
+            ? selectedSkills.filter(s => s !== skill)
+            : [...selectedSkills, skill];
         setSelectedSkills(newSelectedSkills);
     };
 
     return (
         <div className={Style.mainBody}>
             <h1>Tipo</h1>
-            <h3>O Tipo do seu personagem define o papel que ele vai desempenhar no grupo.</h3>
-            <h3>Cada foco possui uma árvore de habilidade única.</h3>
-            
             <select onChange={handleTypeChange} value={selectedType}>
                 <option value="">Selecione um tipo</option>
-                <option value="warrior">Guerreiro</option>
-                <option value="explorer">Explorador</option>
-                <option value="adept">Adepto</option>
-                <option value="speaker">Orador</option>
+                <option value="Guerreiro">Guerreiro</option>
+                <option value="Explorador">Explorador</option>
+                <option value="Adepto">Adepto</option>
+                <option value="Orador">Orador</option>
             </select>
 
             {selectedType && (
@@ -65,7 +65,7 @@ function SecondStep() {
                     ))}
                 </div>
             )}
-            
+
             <button onClick={goToBack}>Voltar</button>
             <button onClick={goToThirdStep}>Próximo passo</button>
         </div>
