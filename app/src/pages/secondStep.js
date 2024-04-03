@@ -10,10 +10,10 @@ function SecondStep() {
     const [selectedSkills, setSelectedSkills] = useState([]);
 
     const habilidades = {
-        warrior: ['Ataque Poderoso', 'Defesa Robusta'],
-        explorer: ['Navegação', 'Sobrevivência'],
-        adept: ['Magia Elemental', 'Cura'],
-        speaker: ['Diplomacia', 'Persuasão'],
+        guerreiro: ['Ataque Poderoso', 'Defesa Robusta'],
+        explorador: ['Navegação', 'Sobrevivência'],
+        adepto: ['Magia Elemental', 'Cura'],
+        orador: ['Diplomacia', 'Persuasão'],
     };
 
     const goToThirdStep = () => {
@@ -42,10 +42,10 @@ function SecondStep() {
             <h1>Tipo</h1>
             <select onChange={handleTypeChange} value={selectedType}>
                 <option value="">Selecione um tipo</option>
-                <option value="Guerreiro">Guerreiro</option>
-                <option value="Explorador">Explorador</option>
-                <option value="Adepto">Adepto</option>
-                <option value="Orador">Orador</option>
+                <option value="guerreiro">Guerreiro</option>
+                <option value="explorador">Explorador</option>
+                <option value="adepto">Adepto</option>
+                <option value="orador">Orador</option>
             </select>
 
             {selectedType && (
