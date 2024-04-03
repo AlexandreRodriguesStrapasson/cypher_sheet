@@ -3,7 +3,10 @@ import Style from "../style/sheet.module.css";
 import { SheetContext } from '../context/useContext'; 
 
 function Sheet() {
-    const {characterName, playerName, description, backGround, descriptor, level, type} = useContext(SheetContext);
+    const {
+        characterName, playerName, description, backGround, 
+        descriptor, level, type, selectedSkills
+    } = useContext(SheetContext);
 
     return (
         <div className={Style.mainBody}>
@@ -33,6 +36,11 @@ function Sheet() {
             <div className={Style.combatSections}> 
                 <div className={Style.skills}>
                     <h3>Habilidades</h3>
+                    <ul>
+                        {selectedSkills.map(skill => (
+                            <li key={skill}>{skill}</li>
+                        ))}
+                    </ul>
                 </div>
                 
                 <div className={Style.attack}>
@@ -45,9 +53,9 @@ function Sheet() {
             
             <div className={Style.additionalInfoSections}>
                 <div className={Style.backGround}>
-                    <h1>Aparência</h1>
+                    <h3>Aparência</h3>
                     <p>{description}</p>
-                    <h1>História</h1>
+                    <h3>História</h3>
                     <p>{backGround}</p>
                 </div>
                 <div className={Style.notes}>

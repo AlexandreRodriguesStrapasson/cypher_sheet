@@ -10,6 +10,7 @@ export const SheetProvider = ({children}) => {
      const [descriptor, setDescriptor] = useState("");
      const [level, setLevel] = useState("");
      const [type, setType] = useState("");
+     const [selectedSkills, setSelectedSkills] = useState([]);
      
     
     return (
@@ -21,7 +22,8 @@ export const SheetProvider = ({children}) => {
                     backGround, setBackGround,
                     descriptor, setDescriptor,
                     level, setLevel,
-                    type, setType
+                    type, setType,
+                    selectedSkills, setSelectedSkills
                 }
             }>
             {children}

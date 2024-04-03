@@ -1,14 +1,13 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { SheetContext } from '../context/useContext'; // Ajuste o caminho conforme necessário
+import { SheetContext } from '../context/useContext'; 
 import Style from '../style/secondStep.module.css'; 
 
 function SecondStep() {
     const navigate = useNavigate();
-    const { setType } = useContext(SheetContext);
+    const { setType, setSelectedSkills, selectedSkills } = useContext(SheetContext);
     const [selectedType, setSelectedType] = useState('');
-    const [selectedSkills, setSelectedSkills] = useState([]);
-
+    
     const habilidades = {
         guerreiro: ['Ataque Poderoso', 'Defesa Robusta'],
         explorador: ['Navegação', 'Sobrevivência'],
