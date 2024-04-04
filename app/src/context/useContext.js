@@ -11,7 +11,9 @@ export const SheetProvider = ({children}) => {
      const [level, setLevel] = useState("");
      const [type, setType] = useState("");
      const [selectedSkills, setSelectedSkills] = useState([]);
-     
+     const [focus, setFocus] = useState("");
+     const [focusSkills, setFocusSkills] = useState([]);
+
     
     return (
         <SheetContext.Provider value={
@@ -23,7 +25,9 @@ export const SheetProvider = ({children}) => {
                     descriptor, setDescriptor,
                     level, setLevel,
                     type, setType,
-                    selectedSkills, setSelectedSkills
+                    selectedSkills, setSelectedSkills,
+                    focus, setFocus,
+                    focusSkills, setFocusSkills
                 }
             }>
             {children}

@@ -5,19 +5,19 @@ import { SheetContext } from '../context/useContext';
 function Sheet() {
     const {
         characterName, playerName, description, backGround, 
-        descriptor, level, type, selectedSkills
+        descriptor, level, type, selectedSkills, focus, focusSkills
     } = useContext(SheetContext);
 
     return (
         <div className={Style.mainBody}>
             <h2>Ficha Cypher</h2>
             <div className={Style.characterInfo}>
-                <input value={playerName || "Nome do personagem"} readOnly />
+                <input value={playerName || "Nome do jogador"} readOnly />
                 <input value={characterName || "Nome do personagem"} readOnly />
                 <input value={descriptor || "Descritor"} readOnly />
                 <input value={type || "Tipo"} readOnly />
-                <input value="foco" readOnly />
-                <input value={level || "Nivel"} readOnly/>
+                <input value={focus || "Foco"} readOnly />
+                <input value={level || "Nível"} readOnly/>
             </div>
 
             <div className={Style.infoSections}> 
@@ -36,9 +36,23 @@ function Sheet() {
             <div className={Style.combatSections}> 
                 <div className={Style.skills}>
                     <h3>Habilidades</h3>
+                    
+                    <h3>Habilidades do Tipo</h3>
+                    
                     <ul>
-                        {selectedSkills.map(skill => (
-                            <li key={skill}>{skill}</li>
+                        {selectedSkills.map((skill, index) => (
+                            <li key={index}>{skill}</li>
+                        ))}
+                    </ul>
+                    
+                    <h3>Habilidades do Foco</h3>
+
+                    <ul>
+                        {selectedSkills.map((skill, index) => (
+                            <li key={index}>{skill}</li>
+                        ))}
+                        {focusSkills && focusSkills.map((skill, index) => (
+                            <li key={`focus-${index}`}>{skill}</li> 
                         ))}
                     </ul>
                 </div>
