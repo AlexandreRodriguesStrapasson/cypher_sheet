@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'; 
+import React, { useContext, useEffect, useState } from 'react'; 
 import Style from "../style/sheet.module.css";
 import { SheetContext } from '../context/useContext'; 
 
@@ -7,6 +7,40 @@ function Sheet() {
         characterName, playerName, description, backGround, 
         descriptor, level, type, selectedSkills, focus, focusSkills
     } = useContext(SheetContext);
+
+    const [strength, setStrength] = useState(0);
+    const [speed, setSpeed] = useState(0);
+    const [intellect, setIntellect] = useState(0);
+
+
+    useEffect(() => {
+        switch(type) {
+            case 'Guerreiro':
+                setStrength(10);
+                setSpeed(10);
+                setIntellect(8);
+                break;
+            case 'Explorador':
+                setStrength(8);
+                setSpeed(10);
+                setIntellect(10);
+                break;
+            case 'Adepto':
+                setStrength(8);
+                setSpeed(8);
+                setIntellect(12);
+                break;
+            case 'Orador':
+                setStrength(8);
+                setSpeed(12);
+                setIntellect(8);
+                break;
+            default:
+                setStrength(0);
+                setSpeed(0);
+                setIntellect(0);
+        }
+    }, [type]);
 
     return (
         <div className={Style.mainBody}>
@@ -24,11 +58,9 @@ function Sheet() {
                 <div className={Style.attributeBox}>
                     <h3>Atributos</h3>
                     <div className={Style.attributeBoxCountainer}>
-                        <div className='might'><strong>Força</strong></div>
-                        
-                        <div className='speed'><strong>Velocidade</strong></div>
-                        
-                        <div className='intellect'><strong>Intelecto</strong></div>
+                        <div className='might'><strong>Força: {strength}</strong></div>
+                        <div className='speed'><strong>Velocidade: {speed}</strong></div>
+                        <div className='intellect'><strong>Intelecto: {intellect}</strong></div>
                     </div>
                 </div>
 
