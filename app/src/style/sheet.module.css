@@ -46,8 +46,8 @@
 .skills ul {
     display: flex;
     flex-wrap: wrap;
-    list-style-type: none; /* Remove os pontos */
-    padding: 0; /* Remove o padding padrão */
+    list-style-type: none; 
+    padding: 0; 
 }
 
 .skills li {

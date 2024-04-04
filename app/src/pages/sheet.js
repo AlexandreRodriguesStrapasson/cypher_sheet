@@ -48,9 +48,6 @@ function Sheet() {
                     <h3>Habilidades do Foco</h3>
 
                     <ul>
-                        {selectedSkills.map((skill, index) => (
-                            <li key={index}>{skill}</li>
-                        ))}
                         {focusSkills && focusSkills.map((skill, index) => (
                             <li key={`focus-${index}`}>{skill}</li> 
                         ))}
