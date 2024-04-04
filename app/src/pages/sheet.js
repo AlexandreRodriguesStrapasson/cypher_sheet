@@ -35,7 +35,7 @@ function Sheet() {
             
             <div className={Style.combatSections}> 
                 <div className={Style.skills}>
-                    <h3>Habilidades</h3>
+                    <h3>Habilidades Especiais</h3>
                     
                     <h3>Habilidades do Tipo</h3>
                     
