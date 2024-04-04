@@ -23,6 +23,13 @@ function Sheet() {
             <div className={Style.infoSections}> 
                 <div className={Style.attributeBox}>
                     <h3>Atributos</h3>
+                    <div className={Style.attributeBoxCountainer}>
+                        <div className='might'><strong>Força</strong></div>
+                        
+                        <div className='speed'><strong>Velocidade</strong></div>
+                        
+                        <div className='intellect'><strong>Intelecto</strong></div>
+                    </div>
                 </div>
 
                 <div className={Style.abilities}>
