@@ -63,11 +63,12 @@
 }
 
 .attributeBoxCountainer div {
-    width: 100px; 
-    height: 100px; 
+    width: 90px; 
+    height: 120px; 
     display: flex;
     justify-content: center; 
     align-items: center; 
     border: 1px solid #000; 
     margin: 5px; 
+    font-size: 18px;
 }

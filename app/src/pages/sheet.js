@@ -21,19 +21,19 @@ function Sheet() {
                 setIntellect(8);
                 break;
             case 'Explorador':
-                setStrength(8);
-                setSpeed(10);
-                setIntellect(10);
+                setStrength(10);
+                setSpeed(9);
+                setIntellect(9);
                 break;
             case 'Adepto':
-                setStrength(8);
-                setSpeed(8);
+                setStrength(7);
+                setSpeed(9);
                 setIntellect(12);
                 break;
             case 'Orador':
                 setStrength(8);
-                setSpeed(12);
-                setIntellect(8);
+                setSpeed(9);
+                setIntellect(11);
                 break;
             default:
                 setStrength(0);
@@ -58,9 +58,9 @@ function Sheet() {
                 <div className={Style.attributeBox}>
                     <h3>Atributos</h3>
                     <div className={Style.attributeBoxCountainer}>
-                        <div className='might'><strong>Força: {strength}</strong></div>
-                        <div className='speed'><strong>Velocidade: {speed}</strong></div>
-                        <div className='intellect'><strong>Intelecto: {intellect}</strong></div>
+                        <div className='might'><strong>Força         <br/> {strength}</strong></div>
+                        <div className='speed'><strong>Velocidade    <br/>{speed}</strong></div>
+                        <div className='intellect'><strong>Intelecto <br/>{intellect}</strong></div>              
                     </div>
                 </div>
 
