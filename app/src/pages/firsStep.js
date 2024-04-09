@@ -37,6 +37,52 @@ function FirstStep() {
     setLevelInput(event.target.value);
   }
 
+  const getDescriptorDescription = (descriptor) => {
+    switch (descriptor) {
+      case 'Benificente':
+        return (
+          <>
+            <ul>
+              <li>Generoso: Aliados que passaram mais de 1 dia com você recebem +1 nas rolagens de recuperação</li>
+              <li>Altruista: Se você estiver próximo a uma criatura que sofreu dano, você pode intercepitar e receber 1 ponto desse dano (reduzindo o dano infligido à criatura em 1 ponto). Se você tiver Armadura, ela não oferece nenhum benefício ao usar essa habilidade.</li>
+              <li>Você é TREINADO em todos os testes relacionados a interações sociais, deixando as pessoas mais calmas e ganhando confiança.</li>
+              <li>Inabilidade: Quando está sozinho, todos os testes de velocidade e intelecto são prejudicados.</li>
+              <li>Inabilidade: Você não é do tipo que gosta do ar livre, todos os testes de correr, escalar e nadar são dificultados.</li>
+            </ul>
+          </>
+        );
+      case 'Calmo':
+        return (
+          <>
+            <ul>
+              <li>Estudioso: +2 na margem de Intelecto</li>
+              <li>Habilidade: Você é TREINADO em quatro habilidades não fisicas de sua escolha.</li>
+              <li>Curioso: Você pode descobrir um fato aleatório pertinente à situação atual quando desejar. 
+                  Isso é sempre uma questão de fato, não de conjectura ou suposição, e deve ser algo que você poderia ter lido ou visto logicamente no passado. 
+                  Você pode fazer isso uma vez, embora a habilidade seja renovada cada vez que você fizer um teste de recuperação.</li>
+              <li>Inabilidade: Você não é um lutador, todos os testes fisicos são dificultados</li>
+            </ul>
+          </>
+        );
+
+        case 'Caótico':
+          return(
+            <>
+              <ul>
+                <li>Agitado: +4 na margem de Velocidade</li>
+                <li>Habilidade: Você é TREINADO em testes de defesa de Intelecto</li>
+                <li>Caótico: Uma vez após cada rolagem de recuperação de dez horas, se você não gostar do primeiro resultado, 
+                    você pode rolar novamente um dado de sua escolha. Se você fizer isso, e independentemente do resultado, o GM apresentará a você uma intrusão do GM.</li>
+                <li>Inabilidade: Seu corpo está um pouco desgastado por excessos ocasionais. Tarefas de defesa de Força são dificultados.</li>
+              </ul>
+            </>
+          );
+      // Adicione mais cases conforme necessário para os outros descritores
+      default:
+        return null;
+    }
+  };
+
 
 
   return (
@@ -87,6 +133,8 @@ function FirstStep() {
             <option value="Cruel">Cruel</option>
             <option value="Louco">Louco</option>
           </select>
+
+          {getDescriptorDescription(descriptorInput)}
       
 
           <h3>Qual é o nível do seu personagem?</h3>
