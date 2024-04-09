@@ -40,6 +40,13 @@ function Sheet() {
                 setSpeed(0);
                 setIntellect(0);
         }
+
+
+        switch(descriptor){
+            case 'Calmo':
+                setIntellect(prev => prev + 2);
+                break;
+        }
     }, [type]);
 
     return (

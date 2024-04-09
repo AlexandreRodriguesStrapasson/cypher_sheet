@@ -77,7 +77,6 @@ function FirstStep() {
               </ul>
             </>
           );
-      // Adicione mais cases conforme necessário para os outros descritores
       default:
         return null;
     }
