@@ -11,43 +11,59 @@ function Sheet() {
     const [strength, setStrength] = useState(0);
     const [speed, setSpeed] = useState(0);
     const [intellect, setIntellect] = useState(0);
-
+    const [abilities, setAbilities] = useState([]);
 
     useEffect(() => {
+        let baseStrength = 0;
+        let baseSpeed = 0;
+        let baseIntellect = 0;
+        let additionalAbilities = [];
+
         switch(type) {
             case 'Guerreiro':
-                setStrength(10);
-                setSpeed(10);
-                setIntellect(8);
+                baseStrength = 10;
+                baseSpeed = 10;
+                baseIntellect = 8;
                 break;
             case 'Explorador':
-                setStrength(10);
-                setSpeed(9);
-                setIntellect(9);
+                baseStrength = 10;
+                baseSpeed = 9;
+                baseIntellect = 9;
                 break;
             case 'Adepto':
-                setStrength(7);
-                setSpeed(9);
-                setIntellect(12);
+                baseStrength = 7;
+                baseSpeed = 9;
+                baseIntellect = 12;
                 break;
             case 'Orador':
-                setStrength(8);
-                setSpeed(9);
-                setIntellect(11);
+                baseStrength = 8;
+                baseSpeed = 9;
+                baseIntellect = 11;
                 break;
             default:
-                setStrength(0);
-                setSpeed(0);
-                setIntellect(0);
+                baseStrength = 0;
+                baseSpeed = 0;
+                baseIntellect = 0;
         }
 
-
-        switch(descriptor){
+        switch(descriptor) {
             case 'Calmo':
-                setIntellect(prev => prev + 2);
+                baseIntellect += 2;
+                additionalAbilities.push("Você é TREINADO em quatro habilidades não físicas de sua escolha.");
                 break;
+            // Adicione mais casos conforme necessário
         }
-    }, [type]);
+
+        setStrength(baseStrength);
+        setSpeed(baseSpeed);
+        setIntellect(baseIntellect);
+
+        // Atualiza o estado das habilidades apenas com itens únicos
+        setAbilities(prevAbilities => {
+            const newAbilities = [...prevAbilities, ...additionalAbilities];
+            return [...new Set(newAbilities)]; // Remove duplicates
+        });
+    }, [type, descriptor]);
 
     return (
         <div className={Style.mainBody}>
@@ -65,14 +81,19 @@ function Sheet() {
                 <div className={Style.attributeBox}>
                     <h3>Atributos</h3>
                     <div className={Style.attributeBoxCountainer}>
-                        <div className='might'><strong>Força         <br/> {strength}</strong></div>
-                        <div className='speed'><strong>Velocidade    <br/>{speed}</strong></div>
-                        <div className='intellect'><strong>Intelecto <br/>{intellect}</strong></div>              
+                        <div className='might'><strong>Força<br/> {strength}</strong></div>
+                        <div className='speed'><strong>Velocidade<br/>{speed}</strong></div>
+                        <div className='intellect'><strong>Intelecto<br/>{intellect}</strong></div>              
                     </div>
                 </div>
 
                 <div className={Style.abilities}>
                     <h3>Habilidades</h3>
+                    <ul>
+                        {abilities.map((ability, index) => (
+                            <li key={index}>{ability}</li>
+                        ))}
+                    </ul>
                 </div>
                 <div className={Style.cyphers}>
                     <h3>Cyphers</h3>
