@@ -20,7 +20,6 @@ function ThirdStep() {
             case 'Permanece na Pedra':
                 setFocusSkills(['Corpo de Golem', 'Cura Golem', 'Aperto Golem']);
                 break;
-            // Adicionar casos para outros focos
             default:
                 setFocusSkills([]);
         }
@@ -39,7 +38,6 @@ function ThirdStep() {
                         </ul>
                     </>
                 );
-            // Adicionar descrições para outras opções
             default:
                 return '';
         }
@@ -59,7 +57,6 @@ function ThirdStep() {
             <select onChange={handleSelectChange} value={selectedOption}>
                 <option value="">Selecione um foco...</option>
                 <option value="Permanece na Pedra">Permanece na Pedra</option>
-                {/* Adicione mais opções de foco aqui */}
             </select>
             <div>
                 {getDescription(selectedOption)}
