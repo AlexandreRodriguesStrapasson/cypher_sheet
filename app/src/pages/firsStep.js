@@ -39,7 +39,7 @@ function FirstStep() {
 
   const getDescriptorDescription = (descriptor) => {
     switch (descriptor) {
-      case 'Benificente':
+      case 'Beneficente':
         return (
           <>
             <ul>
@@ -125,7 +125,7 @@ function FirstStep() {
           <h3>Selecione o Descritor do personagem</h3>
           <select onChange={handleDescriptorChange}>
             <option value="">Descritor</option>
-            <option value="Benificente">Benificente</option>
+            <option value="Beneficente">Beneficente</option>
             <option value="Calmo">Calmo</option>
             <option value="Caótico">Caótico</option>
             <option value="Criativo">Criativo</option>
