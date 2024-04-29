@@ -52,9 +52,6 @@ function Sheet() {
                 additionalAbilities.push("Você é TREINADO em quatro habilidades não físicas de sua escolha.");
                 break;
             case 'Beneficente':
-                baseStrength += 1;
-                baseSpeed += 1;
-                baseIntellect += 1;
                 additionalAbilities.push("TREINADO em todos os testes relacionados a interações sociais.");
                 additionalAbilities.push("Generoso: Aliados que passaram mais de 1 dia com você recebem +1 nas rolagens de recuperação");
                 break;
