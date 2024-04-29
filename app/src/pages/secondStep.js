@@ -11,17 +11,19 @@ function SecondStep() {
     const habilidades = {
         Guerreiro: ["Porrada", "Capacidade de Combate", "Controle o Campo", "Melhorar a borda", "Não há necessidade de armas", 
         "Habilidades Físicas", "Treinado em armadura", "lançamento rápido", "deslize", "Treinado sem armadura",
-        "Golpe esmagador", "Hemorragia", "Recarregar", "Habilidade com ataques", "habilidade com Defesa"],
+        "Golpe esmagador", "Hemorragia", "Recarregar", "Habilidade com ataques", "habilidade com Defesa", "Ataque sucessivo"],
 
+        Explorador: ['Navegação', 'Sobrevivência', 'Rastreamento', 'Escalada', 'Acampamento', 'Pesca', 'Orientação', 
+        'Primeiros Socorros', 'Camuflagem', 'Armadilhas', 'Caça', 'Cartografia', 'Identificação de Plantas', 'Criptografia',
+        'Observação', 'Mergulho', 'Forrageamento', 'Corrida de Longa Distância'],
 
-
-        Explorador: ['Navegação', 'Sobrevivência'],
-        
         Adepto: ['distorção', 'Apagar memórias', 'Passo distante', 'magia de cobertura', 'Treinamento Mágico', 'Ataque', 
         'Empurrar', 'Campo de Ressonância', 'Varredura', 'Quebrar', 'Ala', 'Adaptação', 'Corte leve', 'Flutuar', 
         'Leitura de mente', 'Recuperar memórias'],
-        
-        Orador: ['Diplomacia', 'Persuasão'],
+
+        Orador: ['Diplomacia', 'Persuasão', 'Negociação', 'Intimidação', 'Atuação', 'Enganação', 'Liderança', 'Empatia', 
+        'Discurso Inspirador', 'Argumentação', 'Contação de Histórias', 'Compreensão Cultural', 'Arbitragem', 
+        'Estratégia de Comunicação', 'Manipulação', 'Detecção de Mentiras', 'Retórica', 'Mediação'],
     };
 
     const goToThirdStep = () => {
