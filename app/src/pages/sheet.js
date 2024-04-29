@@ -19,7 +19,6 @@ function Sheet() {
         let baseIntellect = 0;
         let additionalAbilities = [];
 
-        // Definir atributos baseados no tipo
         switch(type) {
             case 'Guerreiro':
                 baseStrength = 10;
@@ -47,7 +46,6 @@ function Sheet() {
                 baseIntellect = 0;
         }
 
-        // Ajustar atributos e habilidades baseados no descritor
         switch(descriptor) {
             case 'Calmo':
                 baseIntellect += 2;
@@ -66,16 +64,17 @@ function Sheet() {
                 additionalAbilities.push("Caótico: Uma vez após cada rolagem de recuperação de dez horas, se você não gostar do primeiro resultado, você pode rolar novamente um dado de sua escolha.");
                 additionalAbilities.push("Inabilidade: Seu corpo está um pouco desgastado por excessos ocasionais. Tarefas de defesa de Força são dificultados.");
                 break;
+            default:
+                additionalAbilities.push("Nenhuma descritor seleciondo");
         }
 
         setStrength(baseStrength);
         setSpeed(baseSpeed);
         setIntellect(baseIntellect);
 
-        // Atualiza o estado das habilidades apenas com itens únicos
         setAbilities(prevAbilities => {
             const newAbilities = [...prevAbilities, ...additionalAbilities];
-            return [...new Set(newAbilities)]; // Remove duplicates
+            return [...new Set(newAbilities)]; 
         });
     }, [type, descriptor]);
 

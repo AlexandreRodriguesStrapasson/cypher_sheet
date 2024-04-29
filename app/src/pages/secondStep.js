@@ -9,9 +9,18 @@ function SecondStep() {
     const [selectedType, setSelectedType] = useState('');
     
     const habilidades = {
-        Guerreiro: ['Ataque Poderoso', 'Defesa Robusta'],
+        Guerreiro: ["Porrada", "Capacidade de Combate", "Controle o Campo", "Melhorar a borda", "Não há necessidade de armas", 
+        "Habilidades Físicas", "Treinado em armadura", "lançamento rápido", "deslize", "Treinado sem armadura",
+        "Golpe esmagador", "Hemorragia", "Recarregar", "Habilidade com ataques", "habilidade com Defesa"],
+
+
+
         Explorador: ['Navegação', 'Sobrevivência'],
-        Adepto: ['Magia Elemental', 'Cura'],
+        
+        Adepto: ['distorção', 'Apagar memórias', 'Passo distante', 'magia de cobertura', 'Treinamento Mágico', 'Ataque', 
+        'Empurrar', 'Campo de Ressonância', 'Varredura', 'Quebrar', 'Ala', 'Adaptação', 'Corte leve', 'Flutuar', 
+        'Leitura de mente', 'Recuperar memórias'],
+        
         Orador: ['Diplomacia', 'Persuasão'],
     };
 
