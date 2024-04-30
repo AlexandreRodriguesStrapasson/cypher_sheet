@@ -5,7 +5,8 @@ import Style from '../style/secondStep.module.css';
 
 function SecondStep() {
     const navigate = useNavigate();
-    const { setType, setSelectedSkills, selectedSkills } = useContext(SheetContext);
+    const { setType, setSelectedSkills, selectedSkills, setAnnotation } = useContext(SheetContext);
+    const [ annotationInput, setAnnotationInput ] = useState("");
     const [selectedType, setSelectedType] = useState('');
     
     const habilidades = {
@@ -28,6 +29,7 @@ function SecondStep() {
 
     const goToThirdStep = () => {
         navigate('/ThirdStep');
+        setAnnotation(annotationInput);
     };
 
     const goToBack = () => {
@@ -75,6 +77,15 @@ function SecondStep() {
                     ))}
                 </div>
             )}
+
+            <br/>
+            <label>Anotações: </label>
+            <br/>
+            <textarea
+                placeholder='Anotações'
+                value={annotationInput}
+                onChange={(e) => setAnnotationInput(e.target.value)}
+            />
 
             <button onClick={goToBack}>Voltar</button>
             <button onClick={goToThirdStep}>Próximo passo</button>

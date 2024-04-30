@@ -5,7 +5,7 @@ import { SheetContext } from '../context/useContext';
 function Sheet() {
     const {
         characterName, playerName, description, backGround, 
-        descriptor, level, type, selectedSkills, focus, focusSkills, selectedWeapons
+        descriptor, level, type, selectedSkills, focus, focusSkills, selectedWeapons, annotation
     } = useContext(SheetContext);
 
     const [strength, setStrength] = useState(0);
@@ -111,9 +111,7 @@ function Sheet() {
             </div>
             
             <div className={Style.combatSections}> 
-                <div className={Style.skills}>
-                    <h3>Habilidades Especiais</h3>
-                    
+                <div className={Style.skills}>                    
                     <h3>Habilidades do Tipo</h3>
                     
                     <ul>
@@ -153,6 +151,7 @@ function Sheet() {
                 </div>
                 <div className={Style.notes}>
                     <h3>Anotações</h3>
+                    <p>{annotation}</p>
                 </div>
             </div>
         </div>
