@@ -4,8 +4,11 @@ import { SheetContext } from '../context/useContext';
 import Style from "../style/thirdStep.module.css";
 
 function ThirdStep() {
+    const {
+        setFocus, setFocusSkills, setSelectedWeapons,
+        selectedWeapons
+    } = useContext(SheetContext); 
     const [selectedOption, setSelectedOption] = useState('');
-    const { setFocus, setFocusSkills } = useContext(SheetContext); 
     const navigate = useNavigate();
 
     const handleSelectChange = (event) => {
@@ -22,6 +25,15 @@ function ThirdStep() {
                 break;
             default:
                 setFocusSkills([]);
+        }
+    };
+
+    const handleWeaponChange = (event) => {
+        const weapon = event.target.value;
+        if (event.target.checked) {
+            setSelectedWeapons([...selectedWeapons, weapon]);
+        } else {
+            setSelectedWeapons(selectedWeapons.filter(item => item !== weapon));
         }
     };
 
@@ -51,6 +63,8 @@ function ThirdStep() {
         navigate('/SecondStep');
     };
 
+    const weapons = ["Espada", "Adaga", "Lança", "Arco Longo", "Besta de Mão"];
+
     return (
         <div className={Style.mainBody}>
             <h1>Agora é hora de escolher o foco do personagem</h1>
@@ -61,6 +75,22 @@ function ThirdStep() {
             <div>
                 {getDescription(selectedOption)}
             </div>
+
+            <h2>Escolha suas armas:</h2>
+            {weapons.map(weapon => (
+                <div key={weapon}>
+                    <label>
+                        <input
+                            type="checkbox"
+                            value={weapon}
+                            onChange={handleWeaponChange}
+                            checked={selectedWeapons.includes(weapon)}
+                        />
+                        {weapon}
+                    </label>
+                </div>
+            ))}
+
             <button onClick={goToBack}>Voltar</button>
             <button onClick={goToSheet}>Ficha</button>
         </div>

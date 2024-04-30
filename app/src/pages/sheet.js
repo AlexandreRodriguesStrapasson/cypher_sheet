@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react'; 
+import React, { useContext, useEffect, useState } from 'react';
 import Style from "../style/sheet.module.css";
-import { SheetContext } from '../context/useContext'; 
+import { SheetContext } from '../context/useContext';
 
 function Sheet() {
     const {
         characterName, playerName, description, backGround, 
-        descriptor, level, type, selectedSkills, focus, focusSkills
+        descriptor, level, type, selectedSkills, focus, focusSkills, selectedWeapons
     } = useContext(SheetContext);
 
     const [strength, setStrength] = useState(0);
@@ -133,6 +133,11 @@ function Sheet() {
                 
                 <div className={Style.attack}>
                     <h3>Ataques</h3>
+                    <ul>
+                        {selectedWeapons.map((weapon, index) => (
+                            <li key={index}>{weapon}</li>
+                        ))}
+                    </ul>
                 </div>
                 <div className={Style.equipament}>
                     <h3>Equipamentos</h3>
