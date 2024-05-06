@@ -5,7 +5,8 @@ import { SheetContext } from '../context/useContext';
 function Sheet() {
     const {
         characterName, playerName, description, backGround, 
-        descriptor, level, type, selectedSkills, focus, focusSkills, selectedWeapons, annotation
+        descriptor, level, type, selectedSkills, focus, focusSkills, selectedWeapons, annotation,
+        selectedEquipament
     } = useContext(SheetContext);
 
     const [strength, setStrength] = useState(0);
@@ -137,8 +138,14 @@ function Sheet() {
                         ))}
                     </ul>
                 </div>
+
                 <div className={Style.equipament}>
                     <h3>Equipamentos</h3>
+                    <ul>
+                        {selectedEquipament.map((equipament, index) => (
+                            <li key={index}>{equipament}</li>
+                        ))}
+                    </ul>
                 </div>
             </div>
             

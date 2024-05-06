@@ -5,8 +5,7 @@ import Style from "../style/thirdStep.module.css";
 
 function ThirdStep() {
     const {
-        setFocus, setFocusSkills, setSelectedWeapons,
-        selectedWeapons
+        setFocus, setFocusSkills, setSelectedWeapons, selectedWeapons, selectedEquipament, setSelectedEquipament
     } = useContext(SheetContext); 
     const [selectedOption, setSelectedOption] = useState('');
     const navigate = useNavigate();
@@ -37,6 +36,15 @@ function ThirdStep() {
         }
     };
 
+    const handleEquipamentChange = (event) => {
+        const equipament = event.target.value;
+        if(event.target.checked) {
+            setSelectedEquipament([...selectedEquipament, equipament]);
+        }else{
+            setSelectedEquipament(selectedEquipament.filter(item => item !== equipament));
+        }
+    }
+
     const getDescription = (option) => {
         switch(option) {
             case 'Permanece na Pedra':
@@ -64,6 +72,7 @@ function ThirdStep() {
     };
 
     const weapons = ["Espada", "Adaga", "Lança", "Arco Longo", "Besta de Mão"];
+    const equipament = ["Saco de junta", "mochila", "barraca", "roupas nobres", "roupas de inverno"];
 
     return (
         <div className={Style.mainBody}>
@@ -76,7 +85,7 @@ function ThirdStep() {
                 {getDescription(selectedOption)}
             </div>
 
-            <h2>Escolha suas armas:</h2>
+            <h2>Escolha suas armas</h2>
             {weapons.map(weapon => (
                 <div key={weapon}>
                     <label>
@@ -87,6 +96,22 @@ function ThirdStep() {
                             checked={selectedWeapons.includes(weapon)}
                         />
                         {weapon}
+                    </label>
+                </div>
+            ))}
+
+
+            <h2>Escolha seu equipamento</h2>
+            {equipament.map(equipament => (
+                <div kay={equipament}>
+                    <label>
+                        <input
+                            type='checkbox'
+                            value={equipament}
+                            onChange={handleEquipamentChange}
+                            checked={selectedEquipament.includes(equipament)}
+                        />
+                        {equipament}
                     </label>
                 </div>
             ))}

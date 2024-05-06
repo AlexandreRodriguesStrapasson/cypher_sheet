@@ -15,6 +15,7 @@ export const SheetProvider = ({children}) => {
     const [focus, setFocus] = useState("");
     const [focusSkills, setFocusSkills] = useState([]);
     const [selectedWeapons, setSelectedWeapons] = useState([]);  
+    const [selectedEquipament, setSelectedEquipament] = useState([]);
 
     return (
         <SheetContext.Provider value={{
@@ -29,7 +30,8 @@ export const SheetProvider = ({children}) => {
             selectedSkills, setSelectedSkills,
             focus, setFocus,
             focusSkills, setFocusSkills,
-            selectedWeapons, setSelectedWeapons  
+            selectedWeapons, setSelectedWeapons,
+            selectedEquipament, setSelectedEquipament
         }}>
             {children}
         </SheetContext.Provider>
