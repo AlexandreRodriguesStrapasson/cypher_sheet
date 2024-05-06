@@ -6,7 +6,7 @@ function Sheet() {
     const {
         characterName, playerName, description, backGround, 
         descriptor, level, type, selectedSkills, focus, focusSkills, selectedWeapons, annotation,
-        selectedEquipament
+        selectedEquipament, selectedCypher
     } = useContext(SheetContext);
 
     const [strength, setStrength] = useState(0);
@@ -108,6 +108,17 @@ function Sheet() {
                 </div>
                 <div className={Style.cyphers}>
                     <h3>Cyphers</h3>
+                    <ul>
+                        {selectedCypher.map((cyphers, index) => (
+                            <li key={index}>{cyphers}</li>
+                        ))}
+                    </ul>
+
+                    <ul>
+                        {selectedEquipament.map((equipament, index) => (
+                            <li key={index}>{equipament}</li>
+                        ))}
+                    </ul>
                 </div>
             </div>
             
@@ -122,7 +133,6 @@ function Sheet() {
                     </ul>
                     
                     <h3>Habilidades do Foco</h3>
-
                     <ul>
                         {focusSkills && focusSkills.map((skill, index) => (
                             <li key={`focus-${index}`}>{skill}</li> 

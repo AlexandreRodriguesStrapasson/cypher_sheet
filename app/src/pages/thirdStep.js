@@ -5,7 +5,8 @@ import Style from "../style/thirdStep.module.css";
 
 function ThirdStep() {
     const {
-        setFocus, setFocusSkills, setSelectedWeapons, selectedWeapons, selectedEquipament, setSelectedEquipament
+        setFocus, setFocusSkills, setSelectedWeapons, selectedWeapons, selectedEquipament, setSelectedEquipament,
+        selectedCypher, setSelectedCypher
     } = useContext(SheetContext); 
     const [selectedOption, setSelectedOption] = useState('');
     const navigate = useNavigate();
@@ -45,6 +46,15 @@ function ThirdStep() {
         }
     }
 
+    const handleCypherChange = (event) => {
+        const cypher = event.target.value;
+        if (event.target.checked) {
+            setSelectedCypher([...selectedCypher, cypher]);
+        }else{
+            setSelectedCypher(selectedCypher.filter(item => item !== cypher));
+        }
+    }
+
     const getDescription = (option) => {
         switch(option) {
             case 'Permanece na Pedra':
@@ -73,6 +83,7 @@ function ThirdStep() {
 
     const weapons = ["Espada", "Adaga", "Lança", "Arco Longo", "Besta de Mão"];
     const equipament = ["Saco de junta", "mochila", "barraca", "roupas nobres", "roupas de inverno"];
+    const cyphers = ["Lança de Leônidas", "Excalibur", "Mjonir", "Standarte da Joanna D'arc"];
 
     return (
         <div className={Style.mainBody}>
@@ -115,6 +126,22 @@ function ThirdStep() {
                     </label>
                 </div>
             ))}
+
+            <h2>Selecione as Cifras</h2>
+            {cyphers.map(cyphers => (
+                <div key={cyphers}>
+                    <label>
+                        <input
+                            type='checkbox'
+                            value={cyphers}
+                            onChange={handleCypherChange}
+                            checked={selectedCypher.includes(cyphers)}
+                        />
+                        {cyphers}
+                    </label>
+                </div>
+            ))}
+            
 
             <button onClick={goToBack}>Voltar</button>
             <button onClick={goToSheet}>Ficha</button>
