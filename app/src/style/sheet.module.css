@@ -4,19 +4,6 @@
     margin: 0 5px;
 }
 
-.combatSections ul {
-    display: flex;
-    flex-wrap: wrap;
-    list-style-type: none; 
-    padding: 0; 
-}
-
-.combatSections li {
-    width: calc(33.333% - 10px); 
-    margin: 5px; 
-    text-align: left; 
-}
-
 .mainBody {
     background-color: white;
     width: 1000px;
@@ -84,4 +71,10 @@
     border: 1px solid #000; 
     margin: 5px; 
     font-size: 18px;
+}
+
+ul {
+    list-style-type: none; /* Remove os pontos das listas */
+    padding: 0; /* Remove o espaçamento padrão à esquerda */
+    margin: 0; /* Remove a margem padrão */
 }

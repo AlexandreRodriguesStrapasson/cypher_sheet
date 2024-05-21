@@ -1,4 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useRef } from 'react';
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 import Style from "../style/sheet.module.css";
 import { SheetContext } from '../context/useContext';
 
@@ -13,6 +15,8 @@ function Sheet() {
     const [speed, setSpeed] = useState(0);
     const [intellect, setIntellect] = useState(0);
     const [abilities, setAbilities] = useState([]);
+    
+    const sheetRef = useRef();
 
     useEffect(() => {
         let baseStrength = 0;
@@ -76,8 +80,26 @@ function Sheet() {
         });
     }, [type, descriptor]);
 
+    const generatePDF = () => {
+        const input = sheetRef.current;
+        html2canvas(input)
+            .then((canvas) => {
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF();
+                const imgProps = pdf.getImageProperties(imgData);
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+                pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+                pdf.save('sheet.pdf');
+            })
+            .catch((err) => {
+                console.error("Error generating PDF: ", err);
+            });
+    };
+
     return (
-        <div className={Style.mainBody}>
+        <div className={Style.mainBody} ref={sheetRef}>
             <h2>Ficha Cypher</h2>
             <div className={Style.characterInfo}>
                 <input value={playerName || "Nome do jogador"} readOnly />
@@ -113,12 +135,6 @@ function Sheet() {
                             <li key={index}>{cyphers}</li>
                         ))}
                     </ul>
-
-                    <ul>
-                        {selectedEquipament.map((equipament, index) => (
-                            <li key={index}>{equipament}</li>
-                        ))}
-                    </ul>
                 </div>
             </div>
             
@@ -148,7 +164,6 @@ function Sheet() {
                         ))}
                     </ul>
                 </div>
-
                 <div className={Style.equipament}>
                     <h3>Equipamentos</h3>
                     <ul>
@@ -171,6 +186,8 @@ function Sheet() {
                     <p>{annotation}</p>
                 </div>
             </div>
+            
+            <button onClick={generatePDF}>Generate PDF</button>
         </div>
     );
 }
