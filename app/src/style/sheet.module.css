@@ -28,6 +28,8 @@
 .characterInfo input {
     margin: 5px; 
     display: inline-block; 
+    height: 25px;
+    text-align: center;
 }
 
 .attributeBox, .abilities, .cyphers, .skills, .attack, .equipament {
