@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Cypher Sheet
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ficha digital editável para o RPG **Cypher System** (Monte Cook Games), construída em **React 18**. Tela única no estilo da ficha oficial, com tema escuro e detalhes em bordô.
 
-## Available Scripts
+> Projeto iniciado em atividades escolares e modernizado para servir como referência técnica.
 
-In the project directory, you can run:
+## Stack
 
-### `npm start`
+- **React 18** + Create React App
+- **Context API** + hook customizado de persistência (`useLocalStorage`)
+- **CSS Modules** com variáveis CSS para tematização
+- **html2canvas** + **jsPDF** para exportar a ficha em PDF
+- Tipografia: Rajdhani (títulos), Inter (corpo), Share Tech Mono (números)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Funcionalidades
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Ficha completa em **tela única**: identidade, atributos (Pool/Edge/Máximo), Tier/Effort/XP, recuperação, trilha de dano, perícias com níveis (Treinado / Especializado / Inabilidade), avanços, habilidades especiais, ataques, cyphers e equipamento.
+- **Persistência automática** em `localStorage`: feche o navegador e sua ficha continua lá.
+- **Presets** de Tipo (Guerreiro, Explorador, Adepto, Orador), Descritor e Foco que preenchem Pools, Edges e descrição das habilidades com um clique.
+- **Upload de retrato** do personagem com pré-visualização (base64 persistido junto com a ficha).
+- **Exportação para PDF** em A4 com layout preservado.
+- Layout responsivo (3 colunas em desktop, 2 em tablet, 1 em mobile).
 
-### `npm test`
+## Estrutura
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+src/
+├── components/        # Componentes da UI (Sheet, Identity, Stats, etc.)
+├── context/           # SheetContext + Provider com persistência
+├── data/              # Presets do sistema (tipos, descritores, focos)
+├── hooks/             # useLocalStorage
+├── styles/            # CSS Modules da ficha
+├── utils/             # Helpers (exportPdf)
+└── index.css          # Variáveis CSS e tema global
+```
 
-### `npm run build`
+## Como rodar
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+cd app
+npm install
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Abre em [http://localhost:3000](http://localhost:3000).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Para gerar build de produção:
 
-### `npm run eject`
+```bash
+npm run build
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Próximos passos
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Validação numérica nos campos de Pool/Edge.
+- Importação/exportação da ficha em JSON.
+- Catálogo expandido de Tipos, Descritores e Focos do livro base.
