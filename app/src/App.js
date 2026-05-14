@@ -1,13 +1,10 @@
-import './App.css';
+import Sheet from './components/Sheet';
+import { SheetProvider } from './context/SheetContext';
 
-import { Outlet } from 'react-router-dom';
-
-function App() {
+export default function App() {
   return (
-    <div className='App'>
-      <Outlet/>
-    </div>
+    <SheetProvider>
+      <Sheet />
+    </SheetProvider>
   );
 }
-
-export default App;
